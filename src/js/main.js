@@ -42,29 +42,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let resultMessage = document.querySelector('.contacts-form__result'),
             checkbox = document.querySelector('.contacts-form-checkbox__input'),
-            fieldsOK = false,
-            checkboxOK = false;
+            fieldsOK = true,
+            checkboxOK = true;
 
         document.querySelectorAll('.contacts-form__field').forEach(function (element) {
             if (element.value.trim() === '') {
                 element.classList.add('empty-field');
-                resultMessage.classList.add('error-message');
-                resultMessage.textContent = 'Пожалуйста, заполните обязательные поля';
+                fieldsOK = false;
             } else {
-                fieldsOK = true;
+                element.classList.remove('empty-field');
             }
         });
 
         if (!checkbox.checked) {
-            resultMessage.classList.add('error-message');
-            resultMessage.textContent = 'Пожалуйста, отметьте согласие с обработкой данных';
+            checkbox.classList.add('empty-field');
+            checkboxOK = false;
         } else {
+            checkbox.classList.remove('empty-field');
             checkboxOK = true;
         }
 
-        if (fieldsOK && checkboxOK) {
-            resultMessage.classList.add('success-message');
-            resultMessage.textContent = 'Спасибо! Ваше сообщение успешно отправлено';
+        if (!fieldsOK && !checkboxOK) {
+            resultMessage.classList.add('error-message');
+            resultMessage.textContent = 'Пожалуйста, заполните все обязательные поля и отметьте согласие';
+        } else if (!fieldsOK) {
+            resultMessage.classList.add('error-message');
+            resultMessage.textContent = 'Пожалуйста, заполните все обязательные поля';
+        } else if (!checkboxOK) {
+            resultMessage.classList.add('error-message');
+            resultMessage.textContent = 'Пожалуйста, отметьте согласие с обработкой данных';
+        } else {
+            resultMessage.textContent = '';
+            resultMessage.classList.remove('error-message');
+            document.querySelector('.popup-wrapper[data-popup="success"]').classList.add('popup-wrapper-show');
 
             document.querySelectorAll('.contacts-form__field').forEach(function (element) {
                 element.value = '';
@@ -81,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
+    /* ---------- Accordeon ---------- */
 
     let tabs = document.querySelectorAll('.services-tabs-item'),
         tabsContent = document.querySelectorAll('.services-content-item');
@@ -105,6 +116,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 targetContent.classList.add('active');
             }
         });
+    });
+
+
+    /* ---------- Popup ---------- */
+
+    document.querySelector(".popup__close").addEventListener("click", function () {
+        document.querySelector('.popup-wrapper[data-popup="success"]').classList.remove("popup-wrapper-show");
     });
 
 

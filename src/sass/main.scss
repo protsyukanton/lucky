@@ -193,6 +193,14 @@ body {
             justify-content: space-between;
             gap: 32px;
             position: relative;
+            transition: .4s;
+            cursor: pointer;
+
+            &:hover {
+                background:
+                    linear-gradient(#EFF8FF, #EFF8FF) padding-box,
+                    linear-gradient(to right, #D74596, #F2464E, #857ADD, #0192DE) border-box;
+            }
 
             &.active {
                 background:
@@ -560,4 +568,79 @@ body {
             }
         }
     }
+}
+
+
+/* ---------- Popup styles ---------- */
+
+.popup-wrapper {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    place-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    overflow-y: auto;
+}
+
+.popup-wrapper-show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    font-family: sans-serif;
+    padding: 40px 30px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    border: 1px solid transparent;
+    border-radius: 32px;
+    box-shadow: 0 8px 40px 0 #ACB2B852;
+    position: relative;
+    transition: 0.3s;
+    transform: translateY(-50%);
+
+    &__close {
+        width: 48px;
+        height: 48px;
+        border-radius: 100px;
+        background:
+            linear-gradient(white, white) padding-box,
+            linear-gradient(to right, #D74596, #F2464E, #857ADD, #0192DE) border-box;
+        border: 1px solid transparent;
+        flex-shrink: 0;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            background: url('../img/close-icon.svg') no-repeat center center / 25%;
+        }
+    }
+}
+
+.popup-wrapper-show .popup {
+    transform: translateY(0);
+}
+
+.popup__title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.popup-body {
+    font-size: 18px;
+    line-height: 130%;
 }
