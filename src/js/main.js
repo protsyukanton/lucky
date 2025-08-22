@@ -13,25 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
             prevEl: '.services-content-item-slider-button-prev',
         },
         slidesPerView: 1,
-        spaceBetween: 24,
-        breakpoints: {
-            320: {
-                slidesPerView: 1,
-                spaceBetween: 24
-            },
-            480: {
-                slidesPerView: 2,
-                spaceBetween: 24
-            },
-            768: {
-                slidesPerView: 3,
-                spaceBetween: 24
-            },
-            992: {
-                slidesPerView: 1,
-                spaceBetween: 24,
-            }
-        }
+        spaceBetween: 20,
+        
     });
 
 
