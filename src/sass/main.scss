@@ -1,17 +1,13 @@
 /* ---------- Variables ---------- */
 
-$primaryColor: #121127;
-$accentColor: #444BD3;
-$lightColor: #fff;
-$sliderLightColor: #FFF0F5;
-$sliderDarkColor: #9D097C;
+$primaryColor: #131415;
 
 /* ---------- Reset styles ---------- */
 
 /* Links */
 
 a {
-    color: #000;
+    color: $primaryColor;
 
     &,
     &:link,
@@ -141,7 +137,167 @@ body {
 }
 
 .container {
-    max-width: 1158px;
+    max-width: 1950px;
     padding: 0 15px;
     margin: 0 auto;
+}
+
+.title {
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 110%;
+}
+
+.button {
+    width: 100%;
+    max-width: 224px;
+    height: 64px;
+    background: linear-gradient(#ED0189, #F3293B);
+    border-radius: 50px;
+    font-size: 20px;
+    color: #fff;
+    transition: .4s;
+
+    &:hover {
+        scale: 1.05;
+    }
+}
+
+/* ---------- Contacts styles ---------- */
+
+.contacts {
+    margin: 44px 0 50px;
+
+    &-inner {
+        background-color: #EFF8FF;
+        padding: 96px 80px 130px 80px;
+        display: flex;
+        align-items: center;
+        gap: 180px;
+        position: relative;
+
+        &__decor {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            pointer-events: none;
+            background: url('../img/form-decor.svg') no-repeat center center / cover;
+            width: 26%;
+            height: 53%;
+        }
+    }
+
+    &-info {
+        display: flex;
+        flex-direction: column;
+        gap: 70px;
+        width: 100%;
+        max-width: 490px;
+    }
+
+    &-group {
+        &__label {
+            font-size: 16px;
+            color: #1C1F23A3;
+            margin-bottom: 24px;
+        }
+
+        &-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+
+            &:last-child {
+                margin: 0;
+            }
+
+            &__value {
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 120%;
+            }
+
+            &__icon {
+                padding-top: 6px;
+            }
+        }
+    }
+
+    &-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 96px 70px;
+        background-color: #fff;
+        border-radius: 32px;
+        box-shadow: 0 8px 40px 0 #ACB2B852;
+
+        &__title {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 120%;
+            margin-bottom: 64px;
+        }
+
+        &__field {
+            width: 100%;
+            height: 52px;
+            border-bottom: 1px solid #0E90DE29;
+            font-size: 14px;
+            margin-bottom: 32px;
+
+            &::placeholder {
+                color: #1C1F2366;
+            }
+        }
+
+        &-checkbox {
+            margin: 7px 0 39px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            &__input {
+                appearance: none;
+                width: 24px;
+                height: 24px;
+                background-color: #268CDE;
+                border-radius: 6px;
+                border: 1px solid #268CDE;
+                transition: .4s;
+                cursor: pointer;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 22px;
+                    height: 22px;
+                    opacity: 0;
+                    visibility: hidden;
+                    background: url('../img/check.svg') no-repeat center center / 70%;
+                    transition: .4s;
+                }
+
+                &:checked {
+                    &::after {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+
+            &__label {
+                font-size: 16px;
+                line-height: 120%;
+
+                & a {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
 }
