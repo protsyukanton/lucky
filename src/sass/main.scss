@@ -163,6 +163,241 @@ body {
     }
 }
 
+
+/* ---------- Services styles ---------- */
+
+.services {
+
+    &-inner {
+        max-width: 1760px;
+    }
+
+    &__title {
+        margin-bottom: 80px;
+    }
+
+    &-tabs {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+
+        &-item {
+            padding: 45px 40px;
+            background:
+                linear-gradient(white, white) padding-box,
+                linear-gradient(to right, #D74596, #F2464E, #857ADD, #0192DE) border-box;
+            border: 1px solid transparent;
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            position: relative;
+
+            &.active {
+                background:
+                    linear-gradient(#EFF8FF, #EFF8FF) padding-box,
+                    linear-gradient(to right, #D74596, #F2464E, #857ADD, #0192DE) border-box;
+                border: 2px solid transparent;
+            }
+
+            &.active &__icon {
+                background-color: #EFF8FF;
+            }
+
+            &.active &__button {
+
+                &::before {
+                    background: url('../img/close-icon.svg') no-repeat center center / 35%;
+                }
+            }
+
+            &__icon {
+                position: absolute;
+                left: 32px;
+                top: -40px;
+                width: 72px;
+                height: 72px;
+                background-color: transparent;
+                border-radius: 100px;
+                background-position: center center;
+                background-size: 60%;
+                background-repeat: no-repeat;
+                background-color: #fff;
+            }
+
+            &:first-child &__icon {
+                background-image: url('../img/design-icon.svg');
+            }
+
+            &:nth-child(2) &__icon {
+                background-image: url('../img/ads-icon.svg');
+            }
+
+            &:nth-child(3) &__icon {
+                background-image: url('../img/flag-icon.svg');
+            }
+
+            &:last-child &__icon {
+                background-image: url('../img/other-icon.svg');
+            }
+
+            &__title {
+                font-size: 24px;
+                font-weight: 700;
+                line-height: 120%;
+            }
+
+            &__button {
+                width: 48px;
+                height: 48px;
+                border-radius: 100px;
+                background:
+                    linear-gradient(white, white) padding-box,
+                    linear-gradient(to right, #D74596, #F2464E, #857ADD, #0192DE) border-box;
+                border: 1px solid transparent;
+                flex-shrink: 0;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    inset: 0;
+                    background: url('../img/chevron-icon.svg') no-repeat center center / 25%;
+                }
+            }
+
+        }
+    }
+
+    &-content {
+        margin-top: 48px;
+
+
+        &-item {
+            gap: 50px;
+            align-items: center;
+            justify-content: space-between;
+            display: none;
+
+            &.active {
+                display: flex;
+            }
+
+            &-conditions {
+                &__label {
+                    background: linear-gradient(to right, #D74596, #F2464E, #857ADD, #0192DE);
+                    padding: 8px 9px;
+                    border-radius: 27px;
+                    color: #fff;
+                    font-size: 14px;
+                    margin-bottom: 24px;
+                    width: fit-content;
+                }
+
+                &__list {
+                    padding-left: 27px;
+
+                    & li {
+                        list-style-type: disc;
+                        font-size: 20px;
+                        line-height: 140%;
+                    }
+                }
+            }
+
+            &-info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 48px;
+            }
+
+            &__description {
+                font-size: 20px;
+                line-height: 140%;
+
+                & strong {
+                    font-weight: 700;
+                }
+            }
+
+            &-info {
+                max-width: 650px;
+            }
+
+            &-slider {
+                max-width: 700px;
+                margin: 0;
+                height: 30rem;
+                position: relative;
+                border-radius: 60px;
+
+                &-pagination {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    bottom: 40px !important;
+
+                    & .swiper-pagination-bullet {
+                        width: 16px;
+                        height: 16px;
+                        background-color: #fff;
+                        opacity: 1;
+                    }
+
+                    & .swiper-pagination-bullet-active {
+                        width: 20px;
+                        height: 20px;
+                        background-color: #268CDE;
+                    }
+                }
+
+                &-button-prev,
+                &-button-next {
+                    height: 62px;
+                    width: 62px;
+                    background-color: #fff;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: 20%;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: 1;
+                    border-radius: 100px;
+                }
+
+                &-button-prev {
+                    background-image: url('../img/slider-button-prev.svg');
+                    left: 28px;
+                }
+
+                &-button-next {
+                    background-image: url('../img/slider-button-next.svg');
+                    right: 28px;
+                }
+
+                .swiper {
+                    &-slide {
+                        width: 100%;
+                        height: 100%;
+
+                        & picture,
+                        & img {
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 /* ---------- Contacts styles ---------- */
 
 .contacts {
@@ -185,6 +420,7 @@ body {
             background: url('../img/form-decor.svg') no-repeat center center / cover;
             width: 26%;
             height: 53%;
+            z-index: 1;
         }
     }
 

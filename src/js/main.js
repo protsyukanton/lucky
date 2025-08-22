@@ -2,17 +2,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /* ---------- Slider ---------- */
 
-    const crerativeSlider = new Swiper('.creative-slider', {
+    const serviceSlider = new Swiper('.services-content-item-slider', {
         loop: true,
         pagination: {
-            el: '.creative-slider-pagination',
+            el: '.services-content-item-slider-pagination',
             clickable: true,
         },
         navigation: {
-            nextEl: '.creative-slider-button-next',
-            prevEl: '.creative-slider-button-prev',
+            nextEl: '.services-content-item-slider-button-next',
+            prevEl: '.services-content-item-slider-button-prev',
         },
-        slidesPerView: 4,
+        slidesPerView: 1,
         spaceBetween: 24,
         breakpoints: {
             320: {
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 spaceBetween: 24
             },
             992: {
-                slidesPerView: 4,
+                slidesPerView: 1,
                 spaceBetween: 24,
             }
         }
@@ -76,6 +76,33 @@ document.addEventListener('DOMContentLoaded', function () {
         field.addEventListener('click', function () {
             if (this.classList.contains('empty-field')) {
                 this.classList.remove('empty-field');
+            }
+        });
+    });
+
+
+
+    let tabs = document.querySelectorAll('.services-tabs-item'),
+        tabsContent = document.querySelectorAll('.services-content-item');
+
+    tabs.forEach(function (item) {
+        item.addEventListener('click', function () {
+
+            const tabNumber = this.getAttribute('data-tab');
+
+            tabs.forEach(function (tab) {
+                tab.classList.remove('active');
+            });
+
+            this.classList.add('active');
+
+            tabsContent.forEach(function (content) {
+                content.classList.remove('active');
+            });
+
+            const targetContent = document.querySelector(`.services-content-item[data-tab="${tabNumber}"]`);
+            if (targetContent) {
+                targetContent.classList.add('active');
             }
         });
     });
