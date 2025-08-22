@@ -63,8 +63,8 @@
 					</div>
 					<form class="contacts-form" action="#" method="POST">
 						<div class="contacts-form__title">Заказать звонок</div>
-						<input class="contacts-form__field" type="text" name="name" placeholder="Имя">
-						<input class="contacts-form__field" type="tel" name="phone" placeholder="Номер телефона">
+						<input class="contacts-form__field" type="text" name="name" placeholder="Имя" required>
+						<input class="contacts-form__field" type="tel" name="phone" placeholder="Номер телефона" required>
 						<div class="contacts-form-checkbox">
 							<input class="contacts-form-checkbox__input" type="checkbox" id="checkbox" checked>
 							<label class="contacts-form-checkbox__label" for="checkbox">
@@ -72,6 +72,7 @@
 							</label>
 						</div>
 						<button class="contacts-form__button button">Отправить</button>
+						<div class="contacts-form__result"></div>
 					</form>
 				</div>
 			</div>

@@ -233,6 +233,7 @@ body {
         background-color: #fff;
         border-radius: 32px;
         box-shadow: 0 8px 40px 0 #ACB2B852;
+        position: relative;
 
         &__title {
             font-size: 32px;
@@ -250,6 +251,10 @@ body {
 
             &::placeholder {
                 color: #1C1F2366;
+            }
+
+            &.empty-field {
+                border-color: tomato;
             }
         }
 
@@ -297,6 +302,25 @@ body {
                         text-decoration: underline;
                     }
                 }
+            }
+        }
+
+        &__result {
+            position: absolute;
+            left: 70px;
+            bottom: 30px;
+            font-size: 16px;
+            border-radius: 10px;
+            padding: 10px 20px;
+
+            &.error-message {
+                background-color: tomato;
+                color: #fff;
+            }
+
+            &.success-message {
+                background-color: rgb(67, 174, 67);
+                color: #fff;
             }
         }
     }
